@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3238477674941511473}
   - component: {fileID: 3238477674941511470}
   - component: {fileID: 3238477674941511472}
-  - component: {fileID: 3238477674941511476}
   - component: {fileID: 3238477674941511475}
   - component: {fileID: 3238477674941511474}
   - component: {fileID: 3238477674941511477}
@@ -35,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3238477674941511470
 SpriteRenderer:
@@ -102,19 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
---- !u!114 &3238477674941511476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238477674941511471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4406cf4007600154296a1d0d94cc64d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: fd2a5c717174b2a4db57ef4cb82d04ca, type: 2}
 --- !u!50 &3238477674941511475
 Rigidbody2D:
   serializedVersion: 4
