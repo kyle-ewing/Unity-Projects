@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     //private float speed;
     public float movementSpeed;
+    public float runMultiplier;
     private Animator anim;
     private Vector2 moveDirection;
-    
+    public PlayerStats PlayerStats;
 
     // Start is called before the first frame update
     void Start() {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     }
     void Update() {
         ProcessInputs();
+        Sprint();
     }
 
     void FixedUpdate() {
@@ -48,6 +50,19 @@ public class PlayerController : MonoBehaviour {
             
             anim.SetFloat("speed", movementSpeed);
 
+        }
+    }
+
+    void Sprint() {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerStats.Stamina > 0) {
+            movementSpeed *= runMultiplier;
+            PlayerStats.Stamina--;
+            PlayerEvents.onStaminaChange.Invoke();
+            Debug.Log("Movement speed increased to: " + movementSpeed);
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            movementSpeed /= runMultiplier;
         }
     }
 }

@@ -6,9 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerManager", menuName = "PlayerManager")]
 public class PlayerManager : ScriptableObject {
     public GameState gameState { get; set; }
-    public GameObject activePlayer { get; private set; } 
-    
-    //public PlayerStats playerStats;
+    public GameObject activePlayer { get; private set; }
     public string spawnTag;
     
     [SerializeField]

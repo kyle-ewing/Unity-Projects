@@ -9,5 +9,6 @@ public class GameLevel : MonoBehaviour {
     // Start the game level
     void Start() {
         LevelEvents.levelLoaded.Invoke(defaultPlayerSpawn);
+        UIEvents.loadHUD.Invoke();
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player Stats")]
 public class PlayerStats : ScriptableObject {
     [SerializeField]
-    private int hp;
+    private int hp = 100;
     [SerializeField]
-    private int stamina;
+    private int stamina = 100;
     [SerializeField]
     private int level;
     [SerializeField]

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public GameState GameState { get; private set; }
     public LevelManager LevelManager;
     public PlayerManager PlayerManager;
+    public UIManager UIManager;
     
     void Awake()
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour {
         GameState = Instantiate(startingState);
         LevelManager.gameState = GameState;
         PlayerManager.gameState = GameState;
+        UIManager.gameState = GameState;
 
     }
     
