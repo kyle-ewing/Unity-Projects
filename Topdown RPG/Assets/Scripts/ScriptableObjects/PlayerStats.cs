@@ -7,20 +7,27 @@ public class PlayerStats : ScriptableObject {
     [SerializeField]
     private int hp = 100;
     [SerializeField]
-    private int stamina = 100;
+    private float stamina = 100;
     [SerializeField]
     private int level;
     [SerializeField]
     private int xp;
+
+    private float maxStamina = 100;
+    private float minStamina = 0f;
+    private bool sprinting = false;
 
     public int Hp {
         get => hp;
         set => hp = value;
     }
 
-    public int Stamina {
+    public float Stamina {
         get => stamina;
-        set => stamina = value;
+        set {
+            stamina = value;
+            EventManager.FireEvent(new CurrentStaminaEvent(){CurrentStamina = stamina});
+        } 
     }
 
     public int Level {
@@ -31,5 +38,20 @@ public class PlayerStats : ScriptableObject {
     public int Xp {
         get => xp;
         set => xp = value;
+    }
+    
+    public bool Sprinting {
+        get => sprinting;
+        set => sprinting = value;
+    }
+    
+    public float MaxStamina {
+        get => maxStamina;
+        set => maxStamina = value;
+    }
+
+    public float MinStamina {
+        get => minStamina;
+        set => minStamina = value;
     }
 }

@@ -5,31 +5,45 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour {
     [SerializeField] 
     private PlayerStats playerStats;
+    
+    private float staminaToGainPerSecond = 4;
+    private float staminaToLosePerSecond = 5;
+    private float staminaRefillTimer = 1f;
 
-    private int maxStamina = 100;
-
-    void Start() {
-        StartCoroutine(staminaRegen());
-    }
 
     void Update() {
-
+        StaminaRegen();
+        StaminaDrain();
     }
 
-    private IEnumerator staminaRegen() {
-        bool running = true;
-        while (running) {
-            if (playerStats.Stamina < maxStamina) {
-                playerStats.Stamina++;
-                Debug.Log(playerStats.Stamina);
-
+    private void StaminaRegen() {
+        if (playerStats.Sprinting is false) {
+            staminaRefillTimer -= Time.fixedTime;
+            //
+            // if (staminaRefillTimer < 0) {
+            //     playerStats.Stamina += staminaToGainPerSecond * Time.deltaTime;
+            //     staminaRefillTimer = 1f;
+            // }
+            if (!IsStamFull()) {
+                playerStats.Stamina += staminaToGainPerSecond * Time.deltaTime;
             }
-
-            yield return new WaitForSeconds(1);
         }
     }
 
-    private void staminaDrain(Transform staminaHUD) {
-        
+    private void StaminaDrain() {
+        if (playerStats.Sprinting) {
+            if (playerStats.Stamina > 0) {
+                playerStats.Stamina -= staminaToLosePerSecond * Time.deltaTime;
+            }
+        }
     }
+    
+    private bool IsStamFull() {
+        if(HelperMethods.Approximation(playerStats.Stamina, playerStats.MaxStamina, 0.01f)) {
+            return true;
+        }
+        return false;
+    }
+
+
 }

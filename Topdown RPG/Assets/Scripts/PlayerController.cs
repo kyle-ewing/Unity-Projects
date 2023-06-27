@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    void Move() {
+    private void Move() {
         rb.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
         
         anim.SetFloat("moveX", rb.velocity.x); 
@@ -53,16 +53,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void Sprint() {
+    private void Sprint() {
         if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerStats.Stamina > 0) {
+            PlayerStats.Sprinting = true;
             movementSpeed *= runMultiplier;
-            PlayerStats.Stamina--;
-            PlayerEvents.onStaminaChange.Invoke();
             Debug.Log("Movement speed increased to: " + movementSpeed);
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            PlayerStats.Sprinting = false;
             movementSpeed /= runMultiplier;
+            Debug.Log("Movement speed decreased to: " + movementSpeed);
         }
+        
     }
 }

@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 3859244563019672490}
   - component: {fileID: 3859244563019672489}
   - component: {fileID: 3859244563019672488}
+  - component: {fileID: 3922290941977966187}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -422,6 +423,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3922290941977966187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859244563019672495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592001d8e38d8a74b870045c967fd19b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaSlider: {fileID: 3859244562970228318}
 --- !u!1 &3859244563270422172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,5 +1124,5 @@ Transform:
   - {fileID: 3859244563019672491}
   - {fileID: 3859244563378620420}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
