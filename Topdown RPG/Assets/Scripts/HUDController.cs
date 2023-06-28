@@ -1,8 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using BoringSpace.Services;
+using FrozenCircle.Core.Services;
 using Object = UnityEngine.Object;
 
 public class HUDController : MonoBehaviour {
@@ -10,7 +10,7 @@ public class HUDController : MonoBehaviour {
     [SerializeField] 
     private Slider staminaSlider;
     private void Start() {
-        EventManager.RegisterListener<CurrentStaminaEvent>(SetCurrentStamina);
+        ServiceLocator.GetService<EventManager>().RegisterListener<CurrentStaminaEvent>(SetCurrentStamina);
     }
 
     private void Awake() {
@@ -28,7 +28,7 @@ public class HUDController : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        EventManager.UnregisterListener<CurrentStaminaEvent>(SetCurrentStamina);
+        ServiceLocator.GetService<EventManager>().UnregisterListener<CurrentStaminaEvent>(SetCurrentStamina);
     }
 
     private void SetCurrentStamina(IEvent staminaEvent) {
