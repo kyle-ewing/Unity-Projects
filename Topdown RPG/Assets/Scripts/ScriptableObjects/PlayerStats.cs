@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using BoringSpace.Services;
+using FrozenCircle.Core.Services;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player Stats")]
@@ -16,6 +16,20 @@ public class PlayerStats : ScriptableObject {
     private float maxStamina = 100;
     private float minStamina = 0f;
     private bool sprinting = false;
+
+
+    private EventManager m_eventManager;
+    private EventManager EventManager
+    {
+        get {
+            if (m_eventManager is null)
+            {
+                m_eventManager = ServiceLocator.GetService<EventManager>();
+            }
+
+            return m_eventManager;
+        }
+    }
 
     public int Hp {
         get => hp;
