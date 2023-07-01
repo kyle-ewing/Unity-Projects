@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 public class LevelTransition : MonoBehaviour {
 
@@ -26,7 +29,8 @@ public class LevelTransition : MonoBehaviour {
     
     public string triggererTag = "Player";
     public string playerSpawnTransformName = "NOT SET";
-    public SceneAsset sceneToLoad;
+    [SerializeField]
+    private string sceneToLoad;
 
     void OnTriggerEnter2D(Collider2D collider) {
 

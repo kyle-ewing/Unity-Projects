@@ -17,23 +17,23 @@ public static class SceneLoader {
 
 
     
-    public static void Load(int sceneIndex) {
-        _onLoaderCallback = () => {
-            GameObject loadingGameObject = new GameObject("Loading Game Object");
-            loadingGameObject.AddComponent<LoadingMonoBehavior>().StartCoroutine(LoadSceneAsync(sceneIndex));
-        };
-        
-        SceneManager.LoadScene(Scene.Loading.ToString());
-    }
-    
-    public static void Load(SceneAsset scene) {
-        _onLoaderCallback = () => {
-            GameObject loadingGameObject = new GameObject("Loading Game Object");
-            loadingGameObject.AddComponent<LoadingMonoBehavior>().StartCoroutine(LoadSceneAsync(scene));
-        };
-        
-        SceneManager.LoadScene(Scene.Loading.ToString());
-    }
+    // public static void Load(int sceneIndex) {
+    //     _onLoaderCallback = () => {
+    //         GameObject loadingGameObject = new GameObject("Loading Game Object");
+    //         loadingGameObject.AddComponent<LoadingMonoBehavior>().StartCoroutine(LoadSceneAsync(sceneIndex));
+    //     };
+    //     
+    //     SceneManager.LoadScene(Scene.Loading.ToString());
+    // }
+    //
+    // public static void Load(SceneAsset scene) {
+    //     _onLoaderCallback = () => {
+    //         GameObject loadingGameObject = new GameObject("Loading Game Object");
+    //         loadingGameObject.AddComponent<LoadingMonoBehavior>().StartCoroutine(LoadSceneAsync(scene));
+    //     };
+    //     
+    //     SceneManager.LoadScene(Scene.Loading.ToString());
+    // }
 
     private static IEnumerator LoadSceneAsync(int sceneIndex) {
         yield return null;
@@ -45,7 +45,7 @@ public static class SceneLoader {
         }
     }
     
-    private static IEnumerator LoadSceneAsync(SceneAsset scene) {
+    private static IEnumerator LoadSceneAsync(Scene scene) {
         yield return null;
         
         Debug.Log(scene);
